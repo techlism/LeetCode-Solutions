@@ -8,9 +8,9 @@ public:
             ans1.push_back(s[i]);
             ans2.push_back(t[i]);
         }
-        if(ans1.size()!=ans2.size()){
-            return false;
-        }
+        // if(ans1.size()!=ans2.size()){
+        //     return false;
+        // }
         sort(ans1.begin(),ans1.end());
         sort(ans2.begin(),ans2.end());
         for(int i=0;i<ans2.size();i++){
