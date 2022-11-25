@@ -16,9 +16,7 @@ public:
         }
         ListNode* curr = head;
         while(curr->next!=NULL){
-            int value=curr->next->val;
-            curr->next->val=curr->val;
-            curr->val=value;
+            swap(curr->next->val,curr->val);
             curr=curr->next;
             if(curr->next!=NULL){
                 curr=curr->next;
