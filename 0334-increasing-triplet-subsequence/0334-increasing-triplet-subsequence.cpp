@@ -1,6 +1,7 @@
 class Solution {
 public:
     bool increasingTriplet(vector<int>& nums) {
+        //Not the most Optimized
         int left=INT_MAX;
         int mid =INT_MAX;
         for(int i=0;i<nums.size();i++){
