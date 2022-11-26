@@ -3,12 +3,11 @@ public:
     string removeDuplicates(string s) {
         stack<char>st;
         for(int i=0;i<s.length();i++){
-            char ch = s[i];
-            if(!st.empty() &&  ch==st.top()){
+            if(!st.empty() &&  s[i]==st.top()){
                st.pop();
             }
             else{
-               st.push(ch);
+               st.push(s[i]);
             } 
         }
         string ans="";
