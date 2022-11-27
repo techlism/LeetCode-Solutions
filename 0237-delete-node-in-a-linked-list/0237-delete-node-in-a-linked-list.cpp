@@ -9,6 +9,8 @@
 class Solution {
 public:
     void deleteNode(ListNode* node) {
+        
+        //technically we are not deleting that given Node . we are just de-referencing it.
      ListNode * nextnode=node->next;
         node->val=nextnode->val;
         node->next=nextnode->next;
