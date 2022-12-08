@@ -15,3 +15,4 @@
 	<li><code>1 &lt;= n &lt;= 8</code></li>
 </ul>
 </div>
+![image](https://user-images.githubusercontent.com/105585386/206550584-c88a2a95-e223-4839-a1c5-9651dd216161.png)
