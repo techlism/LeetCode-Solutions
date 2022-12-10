@@ -17,14 +17,11 @@ public:
        }
         int left=minDepth(root->left);
         int right=minDepth(root->right);
-        int ans=0;
         if(root->left==NULL || root->right==NULL){
-           ans=1+max(left,right); 
+           return max(left,right) + 1; 
         }
         else{
-           ans=1 + min(left,right);            
+           return min(left,right) + 1;            
         }
- 
-        return ans;
     }
 };
