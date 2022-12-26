@@ -13,6 +13,7 @@ public:
     bool isHappy(int n) {
     int slow, fast;
     slow = fast = n;
+    //Solved Using Floyd Loop Detection
     do {
         slow = digitSquareSum(slow);
         fast = digitSquareSum(fast);
