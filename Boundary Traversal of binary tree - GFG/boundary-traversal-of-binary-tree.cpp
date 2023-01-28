@@ -105,67 +105,75 @@ struct Node
 
 class Solution {
 private:
-    void traverseLeft(Node * root , vector<int>& ans){
-        //base case
-        if((root==NULL)||(root->left==NULL && root->right == NULL)){
-            return;
-        }
-        ans.push_back(root->data);
-        if(root->left){
-            traverseLeft(root->left,ans);
-        }
-        else{
-            traverseLeft(root->right,ans);
-        }
-    }
-    void traverseLeaf(Node * root , vector<int>& ans){
-        if(root==NULL){
-            return;
-        }
-        //condition for a leaf node
-        if(root->left==NULL && root->right == NULL){
-            ans.push_back(root->data);
-            return;
-        }
-        traverseLeaf(root->left,ans);
-        traverseLeaf(root->right,ans);
-    }
-    void traverseRight(Node * root,vector<int>& ans){
-        if((root==NULL)||(root->left==NULL && root->right == NULL)){
-            return;
-        }
-        if(root->right){
-            traverseRight(root->right,ans);
-       
-        }
-        else{
-           traverseRight(root->left,ans);     
-        }
-        //For reverse order
-        ans.push_back(root->data);
-    }
+ bool isleaf(Node * root){
+     if(root->left==NULL && root->right==NULL){
+         return true;
+     }
+     else{
+        return false;
+     }
+ }
+ void traverseLeft(Node * root , vector<int> & ans){
+    //  ans.push_back(root->data);
+     root=root->left;
+     while(root){
+         if(!isleaf(root)){
+             ans.push_back(root->data);
+         }
+         if(root->left){
+             root=root->left;
+         }
+         else{
+             root=root->right;
+         }
+     }
+ }
+ void traverseRight(Node * root , vector<int>& ans){
+     root= root->right;
+     stack<int>s;
+     while(root){
+         if(!isleaf(root)){
+             s.push(root->data);
+         }
+         if(root->right){
+             root=root->right;
+         }
+         else{
+             root=root->left;
+         }
+     }
+     while(!s.empty()){
+         ans.push_back(s.top());
+         s.pop();
+     }
+ }
+ void traverseleaf(Node * root , vector<int> & ans){
+     if(root==NULL){
+        return;
+     }
+     if(isleaf(root)){
+         ans.push_back(root->data);
+     }
+     traverseleaf(root->left,ans);
+     traverseleaf(root->right,ans);
+
+ }
 public:
     vector <int> boundary(Node *root)
     {
-        vector<int> ans;
+        vector<int>ans;
         if(root==NULL){
             return ans;
         }
         ans.push_back(root->data);
-        //Left Subtree
-        traverseLeft(root->left,ans);
-        //Leaf for Left Subtree
-        traverseLeaf(root->left,ans);
-        //Leaf for Right Subtree
-        traverseLeaf(root->right,ans);
-        //Right Subtree
-        traverseRight(root->right,ans);
-        
+        if(!isleaf(root)){
+        traverseLeft(root,ans);
+        traverseleaf(root,ans);
+        traverseRight(root,ans);            
+        }
         return ans;
-        
-
     }
-    };
+};
 
 //{ Driver Code Starts.
 
