@@ -18,9 +18,7 @@ public:
         invertTree(root->left);
         invertTree(root->right);
         TreeNode * curr =root;
-        // if(curr->left && curr->right){
-          swap(curr->left,curr->right);
-        // }
+        swap(curr->left,curr->right);
         return root;
     }
 };
