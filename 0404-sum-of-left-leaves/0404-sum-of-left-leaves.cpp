@@ -25,6 +25,8 @@ private:
         }
     }
 public:
+    //Logic- Wherever you are currently just check if the left node from it is a leaf node or not.
+    //Or simply we can use inorder traversal.
     int sumOfLeftLeaves(TreeNode* root) {
         if(root==NULL){
             return 0;
