@@ -18,9 +18,8 @@ private:
         sumleft(root->left,ans);
         sumleft(root->right,ans);
         if(root->left){
-            TreeNode* curr = root->left;
-            if(curr->left==NULL && curr->right==NULL){
-                ans=ans+curr->val;
+            if(root->left->left==NULL && root->left->right==NULL){
+                ans=ans+root->left->val;
             }
         }
     }
