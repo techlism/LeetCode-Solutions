@@ -11,32 +11,22 @@
  */
 class Solution {
 private:
-    void post1(TreeNode * root1,vector<int> & leaf1){
+    void post(TreeNode * root1, vector<int> & leaf){
         if(root1==nullptr){
             return;
         }
-        post1(root1->left,leaf1);
-        post1(root1->right,leaf1);
+        post(root1->left,leaf);
+        post(root1->right,leaf);
         if(root1->left==nullptr && root1->right==nullptr){
-            leaf1.push_back(root1->val);
-        }
-    }
-    void post2(TreeNode * root2,vector<int> & leaf2){
-        if(root2==nullptr){
-            return;
-        }
-        post2(root2->left,leaf2);
-        post2(root2->right,leaf2);
-        if(root2->left==nullptr && root2->right==nullptr){
-            leaf2.push_back(root2->val);
+            leaf.push_back(root1->val);
         }
     }
 public:
     bool leafSimilar(TreeNode* root1, TreeNode* root2) {
         vector<int>leaf1;
         vector<int>leaf2;
-        post1(root1,leaf1);
-        post2(root2,leaf2);
+        post(root1,leaf1);
+        post(root2,leaf2);
         if(leaf1.size()!=leaf2.size()){
             return false;
         }
@@ -45,7 +35,6 @@ public:
                 return false;
             }
         }
-        
         return true;
         
     }
