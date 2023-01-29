@@ -19,7 +19,6 @@ public:
     queue<TreeNode * > q;
     stack<vector<int>> s;
     q.push(root);
-    int levelCount=0;
     while(!q.empty()){
         vector<int>level;
         int size=q.size();
@@ -33,7 +32,6 @@ public:
                 q.push(nd->right);
          }
         level.push_back(nd->val);
-        levelCount++;
         }
         s.push(level);
     }
