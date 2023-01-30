@@ -21,6 +21,7 @@ public:
          for(int i=0;i<size;i++){
           TreeNode* front= q.front();
           q.pop();
+           //checking if nodes (x & y) have same parent
           if(front->left && front->right){
            if((front->left->val==x && front->right->val==y)|| (front->left->val==y && front->right->val==x)){
             return false;              
@@ -36,6 +37,7 @@ public:
          }
          level++;
         }
+        //if both x and y are at same level
         return (leveltoNode.find(x)->second==leveltoNode.find(y)->second);        
     }
 };
