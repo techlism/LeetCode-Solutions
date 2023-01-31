@@ -10,12 +10,13 @@
  * };
  */
 class Solution {
+private:
+    int sum=0;
 public:
     int sumEvenGrandparent(TreeNode* root) {
         if(root==nullptr){
             return 0;
         }
-        int sum=0;
         if(root){
          if((root->left)){
             if(root->left->left && (root->val % 2 ==0))
@@ -34,7 +35,8 @@ public:
              sum=sum+root->right->right->val;
          }            
         }
-        return sum + sumEvenGrandparent(root->left) + sumEvenGrandparent(root->right);
-        
+        sumEvenGrandparent(root->left);
+        sumEvenGrandparent(root->right);
+        return sum ;
     }
 };
