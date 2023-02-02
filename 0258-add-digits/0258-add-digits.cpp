@@ -17,5 +17,7 @@ public:
         size_t ans=0;
         add(num,ans);
         return num;
+        //ONE LINE ANSWER (return 1 + (num - 1) % 9;)
+        //How?? See pattern for the numbers till 100
     }
 };
