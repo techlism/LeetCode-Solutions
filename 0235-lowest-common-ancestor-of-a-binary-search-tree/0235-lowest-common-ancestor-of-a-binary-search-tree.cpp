@@ -11,6 +11,8 @@
 class Solution {
 public:
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        // Recursive Solution
+        
         if(root==nullptr){
             return nullptr;
         }
@@ -23,5 +25,20 @@ public:
         else{
             return root;
         }
+        
+//         //Iterative(Not Working on some test cases)
+        
+//         while(root){
+//             if(root->val < p->val && root->val > q->val){
+//                 root=root->left;
+//             }            
+//             else if(root->val < p->val && root->val < q->val){
+//                 root=root->right;
+//             }
+//             else{
+//                 return root;
+//             }
+//         }
+//         return nullptr;
     }
 };
