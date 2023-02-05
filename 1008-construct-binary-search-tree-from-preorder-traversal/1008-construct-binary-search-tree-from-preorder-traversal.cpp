@@ -12,10 +12,7 @@
 class Solution {
 private:
     TreeNode* buildtree(int min, int max, vector<int>&preorder,int &i){
-        if(i>=preorder.size()){
-            return nullptr;
-        }
-        if(preorder[i] < min || preorder[i] > max){
+        if(i>=preorder.size() || preorder[i] < min || preorder[i] > max){
             return nullptr;
         }
         TreeNode* root = new TreeNode(preorder[i++]);
