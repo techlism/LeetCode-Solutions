@@ -25,9 +25,7 @@ private:
     } 
 public:
     TreeNode* bstFromPreorder(vector<int>& preorder) {
-        int min=INT_MIN;
-        int max=INT_MAX;
         int i=0;
-        return buildtree(min,max,preorder,i);
+        return buildtree(INT_MIN,INT_MAX,preorder,i);
     }
 };
