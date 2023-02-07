@@ -15,16 +15,16 @@ private:
         if(root==nullptr){
             return nullptr;
         }
-        TreeNode * leftAns = preorder(root->left,limit,sum+root->val);
-        TreeNode * rightAns = preorder(root->right,limit,sum+root->val);
         if(root->left==nullptr && root->right==nullptr){
             if(sum+root->val < limit){
-            return nullptr;
+                return nullptr;
             }
             else{
                 return root;
             }
-        }
+        }        
+        TreeNode * leftAns = preorder(root->left,limit,sum+root->val);
+        TreeNode * rightAns = preorder(root->right,limit,sum+root->val);
         if(leftAns==nullptr){
             root->left=nullptr;
         }
