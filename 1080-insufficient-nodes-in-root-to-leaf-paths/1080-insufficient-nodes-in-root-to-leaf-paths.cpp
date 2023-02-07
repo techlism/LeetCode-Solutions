@@ -31,7 +31,7 @@ private:
         if(rightAns==nullptr){
             root->right=nullptr;
         }
-        if(root->left==nullptr && root->right==nullptr){
+        if(rightAns==nullptr && leftAns==nullptr){
             return nullptr;
         }
         return root;
