@@ -26,24 +26,22 @@ public:
         q.push(root);
         while(!q.empty()){
             int size=q.size();
-            vector<Node*>level;
+            Node * nextptr = NULL;
             for(int i=0;i<size;i++){
                 Node * front = q.front();
                 q.pop();
-                level.push_back(front);
+                front->next=nextptr;
+                nextptr=front;
+                if(front->right){
+                    q.push(front->right);
+                }               
                 if(front->left){
                     q.push(front->left);
                 }                
-                if(front->right){
-                    q.push(front->right);
-                }
             }
-            for(int i=0;i<level.size()-1;i++){
-                level[i]->next=level[i+1];
-            }
-            level[level.size()-1]->next=NULL;
         }
-        //S.C O(N)
         return root;        
+        //S.C O(1)
+        //But why right side pushed first??        
     }
 };
