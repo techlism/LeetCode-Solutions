@@ -14,6 +14,7 @@ int postorder(TreeNode * root , int &maxSum){
     if(root==nullptr){
         return 0;
     }
+    //These Steps are not clear why max has been taken for them.
     int left= max(postorder(root->left,maxSum),0);
     int right=max(postorder(root->right,maxSum),0);
     int currSum = left + right + root->val;
