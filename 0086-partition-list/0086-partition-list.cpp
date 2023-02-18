@@ -32,5 +32,7 @@ public:
         greaterTail->next=nullptr;
         //skipping the dummy node
         return less->next;
+        //T.C. O(N)
+        // S.C. O(1) as we have just modified the original list
     }
 };
