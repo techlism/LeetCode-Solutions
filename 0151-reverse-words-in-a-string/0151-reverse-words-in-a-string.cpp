@@ -10,7 +10,7 @@ public:
                 temp.push_back(s[i]);
             }
             else{
-//If space found and our temporary string is not empty then push into stack
+                //If space found and our temporary string is not empty then
                 if(!temp.empty()){
                     st.push(temp);
                     //The space we are pushing should not be leading one
@@ -22,13 +22,14 @@ public:
         }
         st.push(temp);
         temp="";
+        //Append uses less memory
         while(!st.empty()){
-            //Checking if any leading space is pushed into the stack
+            //Checking if any leading space is pushed into the stack if yes then skip them
             if((st.top()[0])==' ' && temp.length()==0){
                 st.pop();
             }
             else{
-                temp=temp+st.top();
+                temp.append(st.top());
                 st.pop();                
             }
         }
