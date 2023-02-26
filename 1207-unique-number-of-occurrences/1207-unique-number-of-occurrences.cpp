@@ -16,10 +16,10 @@ public:
                 count=0;
             }
         }
-        for(int i=0;i<occ.size();i++){
-            for(int j=i+1;j<occ.size();j++){
-                if(occ[i]==occ[j])
-                    return false;
+        sort(occ.begin(),occ.end());
+        for(int i=1;i<occ.size();i++){
+            if(occ[i-1]==occ[i]){
+                return false;
             }
         }
         return true;  
