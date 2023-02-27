@@ -11,7 +11,7 @@ public:
                 freq++;
             } 
             if(freq!=0){
-                ans.push_back(nums[i+1]);
+                ans.emplace_back(nums[i+1]);
                 freq=0;
             }
         }
