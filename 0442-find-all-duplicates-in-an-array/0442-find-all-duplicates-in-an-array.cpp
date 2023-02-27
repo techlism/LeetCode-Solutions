@@ -1,6 +1,8 @@
 class Solution {
 public:
     vector<int> findDuplicates(vector<int>& nums) {
+        //Time Complexity  - O(NLogN)
+        //Space Complexity - O(1) - excluding answer array
         sort(nums.begin(),nums.end());
         vector<int>ans;
         int freq=0;
