@@ -9,8 +9,7 @@
  * };
  */
 class Solution {
-private:
-    
+private:  
     void findDuplicates(ListNode * head , vector<int> & duplicates) {
         if(!head) return;
         while(head && head->next){
@@ -20,8 +19,10 @@ private:
             head=head->next;
         }
     }   
-    
-    ListNode* removeDuplicates(ListNode * & head, vector<int> & duplicates){
+public:
+    ListNode* deleteDuplicates(ListNode* head) {
+        vector<int> duplicates;
+        findDuplicates(head,duplicates);
         ListNode * ans = new ListNode(0);
         ListNode * start = ans;
         while(head){
@@ -32,14 +33,6 @@ private:
             }
             head=head->next;
         }
-        return start->next;
-    }
-
-public:
-    
-    ListNode* deleteDuplicates(ListNode* head) {
-        vector<int> duplicates;
-        findDuplicates(head,duplicates);
-        return removeDuplicates(head,duplicates);
+        return start->next;        
     }
 };
