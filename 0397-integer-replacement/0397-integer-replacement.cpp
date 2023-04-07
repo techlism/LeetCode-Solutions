@@ -12,7 +12,7 @@ public:
         
         res ++;
         if (n & 1){  //n&1 means (n%2)
-            if ((n + 1) % 4 == 0) 
+            if ((n + 1) % 4 == 0) // This gives the minimum steps
                 integerReplacement(n + 1);
             else
                 integerReplacement(n - 1);            
