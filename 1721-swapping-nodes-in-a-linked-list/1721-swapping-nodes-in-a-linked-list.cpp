@@ -27,9 +27,12 @@ public:
         for(int i=1;i<=total;i++){
             if(i==k) first = temp;
             if(i==total-k+1) second = temp;
+            if(first && second){
+                swap(first->val,second->val);
+                return head; 
+            }            
             temp=temp->next;
         }
-        swap(first->val,second->val);
         return head;
     }
 };
