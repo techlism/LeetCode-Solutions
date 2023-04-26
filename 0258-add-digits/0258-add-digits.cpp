@@ -1,4 +1,5 @@
 class Solution {
+    
 void add(int &num,size_t ans){
     if(num<10){
         return;
