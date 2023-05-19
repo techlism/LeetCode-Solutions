@@ -1,7 +1,7 @@
 class Solution {
 public:
     int maxSubArray(vector<int>& nums) {
-        // It's solved using a algorithm called Kardane's Algorithm
+        // It's solved using a algorithm called Kadane's Algorithm
         int maxm=nums[0];
         int sum=0,n=nums.size();
         for(int i=0;i<n;i++){
