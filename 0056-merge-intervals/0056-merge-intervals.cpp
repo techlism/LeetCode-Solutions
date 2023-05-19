@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<vector<int>> merge(vector<vector<int>>& intervals) {
-        //Answer
+        //Answer vector ⤵️
         vector<vector<int>> mergedIntervals;
         if(intervals.size()==0){
             return mergedIntervals;
