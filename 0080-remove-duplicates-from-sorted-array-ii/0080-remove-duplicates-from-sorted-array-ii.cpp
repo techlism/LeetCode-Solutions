@@ -1,30 +1,30 @@
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
-        /* T.C. 0(N)
+        /* T.C. 0(N) - Traversal 
            S.C. 0(N) (Due to Stack) */
         if(nums.size()==1){
-            return nums.size();
+            return 1;
         }
         stack<int>s;
         int freq=0;
-        for(int i=0;i<nums.size();i++){
+        for(int num : nums){
             if(s.empty()){
-                s.push(nums[i]);
+                s.push(num);
                 ++freq;
                 continue;
             }
-            if(s.top()==nums[i]&&freq<2){
+            if(s.top()==num && freq<2){
                 ++freq;
-                s.push(nums[i]);
+                s.push(num);
             }
-            if(s.top()!=nums[i]){
-                s.push(nums[i]);
-                freq=0;
-                ++freq;
+            if(s.top()!=num){
+                s.push(num);
+                freq=1;
             }
         }
-        nums.clear();
+        vector<int> dummy(0);
+        nums=dummy;
         while(!s.empty()){
             nums.push_back(s.top());
             s.pop();
