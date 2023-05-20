@@ -26,10 +26,10 @@ public:
         vector<int> dummy(0);
         nums=dummy;
         while(!s.empty()){
-            nums.push_back(s.top());
+            //Insert at start
+            nums.insert(nums.begin(),s.top());
             s.pop();
         }
-        reverse(nums.begin(),nums.end());
         return nums.size(); 
     }
 };
