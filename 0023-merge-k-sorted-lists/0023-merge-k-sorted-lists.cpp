@@ -54,5 +54,9 @@ public:
             }
         }
         return mergeSort(merged->next);
+        //Time Complexity : O(NlogN) - Because of merge sort
+        // Space Complexity: O(N*K) - Because of creation of a new list.
+        // It could be optimised very easily by just taking two lists from lists vector and then merge them to get a new list till we have a just a single list.
+        
     }
 };
