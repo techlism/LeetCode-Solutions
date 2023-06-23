@@ -15,10 +15,7 @@ public:
             ans.push_back(st.top());
             st.pop();
        }
-       int e=ans.length()-1,i=0;
-       while(i<=e){
-            swap(ans[i++],ans[e--]);
-       }
-        return ans;   
+       reverse(ans.begin(),ans.end());
+       return ans;   
     }
 };
