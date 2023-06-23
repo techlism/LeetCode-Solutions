@@ -5,5 +5,4 @@ class Solution:
             if v in dic and i - dic[v] <= k:
                 return True
             dic[v] = i
-        print(dic)
         return False
