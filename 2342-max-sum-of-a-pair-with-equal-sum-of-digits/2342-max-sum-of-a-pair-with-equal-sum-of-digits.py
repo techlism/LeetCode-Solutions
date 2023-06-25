@@ -1,9 +1,6 @@
-from typing import List
 class Solution:
-    @staticmethod
-    def digitSum(num:int):
+    def digitSum(n:int):
         sum=0
-        n=num
         while(n>0):
             sum = sum + n%10
             n = n//10
