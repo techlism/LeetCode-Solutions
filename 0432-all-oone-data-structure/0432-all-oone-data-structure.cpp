@@ -1,6 +1,7 @@
 class AllOne {
 private:
     unordered_map<string, int> stf;
+    // Using map gives us a sorted order but increases the complexity to O(logN)
     map<int , unordered_set<string>> fts;
 public:
     AllOne() {}
@@ -34,6 +35,7 @@ public:
 
     string getMaxKey() {
         if(fts.empty()) return "";
+        // rbegin - basically reverse begin or last value
         else return *(fts.rbegin()->second.begin());
     }
 
