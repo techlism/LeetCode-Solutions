@@ -1,8 +1,10 @@
 class Solution {
+// Time Complexity : O(NLOGN)
+// Space Complexity : O(N) + O(N) = O(N)
 public:
     string frequencySort(string s) {
         unordered_map <char,int> ctof;
-        map<int, vector<char> >fts;
+        map<int, string,greater<int> >fts;
         string ans="";
         for(auto ch : s) ctof[ch]+=1;
         for(auto el : ctof) fts[el.second].push_back(el.first);
@@ -16,7 +18,6 @@ public:
                 }               
             }
         }
-        reverse(ans.begin(),ans.end());
         return ans;
     }
 };
