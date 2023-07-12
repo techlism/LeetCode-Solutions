@@ -1,11 +1,13 @@
 class Solution {
 public:
     vector<int> topKFrequent(vector<int>& nums, int k) {
-        
+        // Time complexity : O(NLOGN) can be optimized more using something like p.q.
         unordered_map<int,int> numfreq;
         for(auto num : nums) numfreq[num]++;
-        map<int, vector<int> ,greater<int> > freqnum;
+        
+        map<int, vector<int>, greater<int>> freqnum;
         for(auto nf : numfreq) freqnum[nf.second].emplace_back(nf.first);
+        
         vector<int> ans;
         for(auto fn : freqnum){
             for(auto val : fn.second){
