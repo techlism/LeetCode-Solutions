@@ -95,37 +95,34 @@ struct Node
 class Solution
 {
     private:
-    pair<bool,int>sumtree(Node * root){
-        if(root==NULL){
-            pair<bool,int>p=make_pair(true,0);
+    pair<bool,int> sumtree(Node* root){
+        if(!root){
+            pair <bool,int> p = make_pair(true,0);
             return p;
         }
-        //Leaf Node
-        if(root->right==NULL && root->left==NULL){
-            //Data of leaf Node should be returned
-            pair<bool,int>p=make_pair(true,root->data);
+        if(!root->left && !root->right) {
+            pair <bool,int> p = make_pair(true,root->data);
             return p;
         }
-        pair<bool,int> leftAns= sumtree(root->left);
-        pair<bool,int> rightAns= sumtree(root->right);
+        pair<bool,int> leftAns = sumtree(root->left);
+        pair<bool,int> rightAns = sumtree(root->right);
         
         bool left = leftAns.first;
         bool right = rightAns.first;
-        //condition for sum tree
-        bool sum = root->data == leftAns.second + rightAns.second;
-        pair<bool,int> ans ;
-        if(left && right && sum){
-            ans.first= true;
+        bool sum = root->data == (leftAns.second + rightAns.second);
+        pair<bool,int> ans;
+        if(left &&  right && sum ){
+            ans.first=true;
             ans.second = 2 * root->data;
         }
         else{
-            ans.first=false;
+            ans.first = false;
         }
         return ans;
-
-    }    
+    }
     public:
-    bool isSumTree(Node* root){
+    bool isSumTree(Node* root)
+    {
          return sumtree(root).first;
     }
 };
