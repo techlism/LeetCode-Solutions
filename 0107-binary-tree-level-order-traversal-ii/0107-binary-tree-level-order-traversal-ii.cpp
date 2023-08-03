@@ -17,7 +17,7 @@ public:
       return ans;
     }
     queue<TreeNode * > q;
-    stack<vector<int>> s;
+    // stack<vector<int>> s;
     q.push(root);
     while(!q.empty()){
         vector<int>level;
@@ -33,12 +33,13 @@ public:
          }
         level.push_back(nd->val);
         }
-        s.push(level);
+        // s.push(level);
+        ans.insert(ans.begin(),level);
     }
-    while(!s.empty()){
-        ans.push_back(s.top());
-        s.pop();
-    }
+    // while(!s.empty()){
+    //     ans.push_back(s.top());
+    //     s.pop();
+    // }
     return ans;        
     }
 };
