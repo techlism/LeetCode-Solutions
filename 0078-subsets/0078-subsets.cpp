@@ -3,7 +3,7 @@ private:
 void solve(vector<int> &nums, vector<int> output, int index, vector<vector<int> >& ans) {
         //base case
         if(index >= nums.size()) {
-            ans.push_back(output);
+            ans.emplace_back(output);
             return ;
         }
         
@@ -12,7 +12,7 @@ void solve(vector<int> &nums, vector<int> output, int index, vector<vector<int> 
         
         //include
         int element = nums[index];
-        output.push_back(element);
+        output.emplace_back(element);
         solve(nums, output, index+1, ans);
         
 }
