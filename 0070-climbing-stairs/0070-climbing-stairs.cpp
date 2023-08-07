@@ -9,9 +9,22 @@ private:
         return dp[n];
     
     }
+    int tab(int n)
+    {
+        int stair0 = 0;
+        int stair1 = 1;
+        for(int i =0;i<n;i++)
+        {
+            int next = stair0 + stair1;
+            stair0 = stair1;
+            stair1 = next;
+        }
+        return stair1;
+    }
 public:
     int climbStairs(int n) {
         vector<int>dp(n+1,-1);
+        return tab(n);
         return solve(n,dp);
     }
 };
