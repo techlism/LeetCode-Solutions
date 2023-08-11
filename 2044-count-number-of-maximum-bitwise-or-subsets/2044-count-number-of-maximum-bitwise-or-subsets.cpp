@@ -1,25 +1,24 @@
 class Solution {
 private:
-    void countOr(vector<int>&nums, vector<int>& results, int curr,int index){
+    void countOr(vector<int> &nums, int curr, int index,
+                 int &maxm, int &count){        
         if(index >= nums.size()) {
-            results.emplace_back(curr);
+            if (curr > maxm){
+                count=1;
+                maxm=curr;
+            }
+            else if(curr == maxm) count+=1;
             return;
         }
-        countOr(nums,results,curr,index+1);
+        countOr(nums,curr,index+1,maxm,count);
         curr |= nums[index];
-        countOr(nums,results,curr,index+1);
+        countOr(nums,curr,index+1,maxm,count);
     }
 public:
     int countMaxOrSubsets(vector<int>& nums) {
-        vector<int> results;
-        countOr(nums,results,0,0);
-        sort(results.begin(),results.end());
-        int e = results.size() - 1;
-        int ans = 1;
-        while(e > 0 && results[e]==results[e-1]) {
-            ans++;
-            e--;
-        }
-        return ans;
+        int maxm = INT_MIN;
+        int curr = 1;
+        countOr(nums,0,0,maxm,curr);
+        return curr;
     }
 };
