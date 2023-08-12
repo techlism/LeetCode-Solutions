@@ -1,16 +1,15 @@
 class Solution {
 private:
     bool palindrome(int start,int end,string &s){
-     while(start<=end){
-         if (s[start++] != s[end--])
-             return false;         
-     }
-     return true;
+         while(start<=end){
+             if (s[start++] != s[end--])
+                 return false;         
+         }
+         return true;
     }
     
     void createPartition(vector<string>&path, vector<vector<string>> &ans,
                          int index, string &s){
-        
         if(index >= s.length()){
             ans.emplace_back(path);
             return;
@@ -28,7 +27,6 @@ public:
         vector<string> path;
         vector<vector<string>> ans;
         createPartition(path,ans,0,s);
-        return ans;
-        
+        return ans;        
     }
 };
