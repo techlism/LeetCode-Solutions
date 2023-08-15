@@ -11,12 +11,11 @@ public:
         vector<int>res(l1+l2+2,0);
         
         for(int i=l1;i>=0;i--){
+            
             for(int j=l2;j>=0;j--){
                 
                 res[i+j+1]+=(num1[i]-'0') * (num2[j]-'0');
-                
                 res[i+j]+=res[i+j+1]/10;
-                
                 res[i+j+1]%=10;
             }
         }
