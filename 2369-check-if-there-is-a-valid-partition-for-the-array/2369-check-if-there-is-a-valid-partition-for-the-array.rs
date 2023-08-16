@@ -1,21 +1,26 @@
-class Solution:
-    def checkPartitions(self, nums, dp,i) -> bool:
-        if i==len(nums) : 
-            return True;
-        if i in dp: 
-            return dp[i]
-        
-        result  = False
-        
-        if (i < len(nums) - 1 and nums[i]==nums[i+1]):
-            result = self.checkPartitions(nums,dp,i+2)
-        if i < len(nums) - 2 :
-            if (nums [i] == nums[i+1] == nums[i+2] or
-                nums[i]+1 ==nums[i+1] == nums[i+2]-1):
-                result = result or self.checkPartitions(nums,dp,i+3)
-        
-        dp[i] = result
-        return result        
-    def validPartition(self, nums: List[int]) -> bool:
-        dp={}
-        return self.checkPartitions(nums,dp,0)
+impl Solution {
+    fn check_partition(nums:&Vec<i32>,dp:&mut Vec<i8>,i : usize)->bool {
+        if i==nums.len() {
+            return true;
+        }
+        if dp[i] != -1 {
+            return dp[i] != 0 ;
+        }
+        let mut result : bool = false;
+        if i < nums.len() - 1 && nums[i]==nums[i+1] {
+            result = Solution::check_partition(nums,dp,i+2);
+        }
+        if i < nums.len() - 2 {
+            if (nums[i]==nums[i+1] && nums[i+1]==nums[i+2] ) || 
+                (nums[i]+1==nums[i+1] && nums[i+1]==nums[i+2]-1) {
+                result |= Solution::check_partition(nums,dp,i+3);
+            }
+        }
+        dp[i]=result as i8;
+        return result;
+    }
+    pub fn valid_partition(nums: Vec<i32>) -> bool {
+        let mut dp : Vec<i8> = vec![-1;nums.len()];
+        Solution::check_partition(&nums,&mut dp,0)
+    }
+}
