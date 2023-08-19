@@ -34,9 +34,9 @@ private:
         for(int i = s+1;i<=e;i++){
             int pick = nums[i];
             if (i > 1) pick+=prev2;
-            int notpick = prev;
+            // int notpick = prev;
             prev2 = prev;
-            prev=max(pick,notpick);
+            prev=max(pick,prev);
         }
         return prev;
     }
