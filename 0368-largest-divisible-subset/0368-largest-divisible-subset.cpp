@@ -1,11 +1,11 @@
 class Solution {
 public:
     vector<int> largestDivisibleSubset(vector<int>& nums) {
-sort(nums.begin(), nums.end());
+    sort(nums.begin(), nums.end());
     int n = nums.size();
     
-    vector<int> dp(n, 1); // Initialize DP array with 1 since each number is a valid subset itself
-    vector<int> prevIndex(n, -1); // To keep track of the previous index for constructing the subset
+    vector<int> dp(n, 1); 
+    vector<int> prevIndex(n, -1);
     
     int maxSize = 1, maxIndex = 0;
     
