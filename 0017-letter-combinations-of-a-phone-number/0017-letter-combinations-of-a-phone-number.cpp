@@ -17,8 +17,8 @@ private:
         
 public:
     vector<string> letterCombinations(string digits) {
-        if(digits.length()==0) return {};
         vector<string> ans;
+        if(digits.length()==0) return ans;
         string current;
         int index = 0;
         // like vector<string>
