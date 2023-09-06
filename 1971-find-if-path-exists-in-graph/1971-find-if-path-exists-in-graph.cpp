@@ -20,11 +20,13 @@ public:
         unordered_map<int,list<int>> adjList;
         prepareAdj(adjList,edges);
         vector<bool> visited(n,false);
-        for(int i=0;i<n;i++){
-            set<int> curr;
-            if(!visited[i]) dfs(i,adjList,visited,curr);
-            if(curr.find(source) != curr.end() && curr.find(destination)!= curr.end())
-                return true;
+        for(int i=0;i<n;i++){            
+            if(!visited[i]){
+                set<int> curr;
+                dfs(i,adjList,visited,curr);
+                if(curr.find(source) != curr.end() && curr.find(destination)!= curr.end())
+                    return true;
+            } 
         }
         return false;
     }
