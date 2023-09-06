@@ -5,6 +5,7 @@ private:
         currPath.emplace_back(node);
         if(node==graph.size()-1){
             ans.emplace_back(currPath);
+            return;
         }
         else{
             for(auto neigh : graph[node]){
