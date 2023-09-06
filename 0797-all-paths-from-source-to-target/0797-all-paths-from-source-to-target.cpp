@@ -1,7 +1,7 @@
-// #define vector<vector<int>>  v
+#define v vector<vector<int>>
 class Solution {
 private:
-    void dfs(vector<vector<int>> & ans,vector<vector<int>> & graph , vector<int> currPath, int node){
+    void dfs(v & ans,v & graph , vector<int> currPath, int node){
         currPath.emplace_back(node);
         if(node==graph.size()-1){
             ans.emplace_back(currPath);
@@ -15,7 +15,7 @@ private:
     }
 public:
     vector<vector<int>> allPathsSourceTarget(vector<vector<int>>& graph) {
-        vector<vector<int>> ans;
+        v ans;
         vector<int> currPath;
         dfs(ans,graph,currPath,0);
         return ans;
