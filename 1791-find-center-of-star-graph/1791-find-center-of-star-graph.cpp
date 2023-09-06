@@ -1,20 +1,25 @@
 class Solution {
 public:
     int findCenter(vector<vector<int>>& edges) {
-        unordered_map<int,list<int>>adjList;
-        for(auto edge : edges){
-            adjList[edge[0]].push_back(edge[1]);
-            adjList[edge[1]].push_back(edge[0]);
-        }
+        unordered_map<int, int> degreeCount;
         int center = 0;
-        int len = INT_MIN;
-        for(auto itr : adjList) {
-            int size = int(itr.second.size());
-            if (size > len ){
-                 len = size;
-                center = itr.first;                
-            }           
+        int maxDegree = 0;
+
+        for (const vector<int>& edge : edges) {
+            degreeCount[edge[0]]++;
+            degreeCount[edge[1]]++;
+
+            if (degreeCount[edge[0]] > maxDegree) {
+                maxDegree = degreeCount[edge[0]];
+                center = edge[0];
+            }
+
+            if (degreeCount[edge[1]] > maxDegree) {
+                maxDegree = degreeCount[edge[1]];
+                center = edge[1];
+            }
         }
+
         return center;
     }
 };
