@@ -19,15 +19,14 @@ public:
         vector<bool> visited(n,false);
         int ans = 0 ;
         for(int i=0;i<n;i++){
-            int nodeCount = 0;
-            int edgeCount = 0;
             if(!visited[i]) {
+                int nodeCount = 0;
+                int edgeCount = 0;                
                 dfs(i,graph,nodeCount,edgeCount,visited);
-            // Main logic
+                // Main logic
                 if(nodeCount * (nodeCount - 1) == edgeCount) 
                     ans+=1;                
             }
-
         }
         return ans;
     }
