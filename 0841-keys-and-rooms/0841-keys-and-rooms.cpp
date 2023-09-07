@@ -9,12 +9,10 @@ private:
     }
 public:
     bool canVisitAllRooms(vector<vector<int>>& rooms) {
-        // for(int i=0;i<rooms.size();i++){
-            vector<bool>visited(rooms.size(),false);
-            int count=0;
-            dfs(rooms,count,0,visited);
-            if(count==rooms.size()) return true;
-        // }
+        vector<bool>visited(rooms.size(),false);
+        int count=0;
+        dfs(rooms,count,0,visited);
+        if(count==rooms.size()) return true;
         return false;
     }
 };
