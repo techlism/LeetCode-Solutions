@@ -8,8 +8,10 @@ private:
 public:
     int countDistinctIntegers(vector<int>& nums) {
         unordered_set<int> unique;
-        for(auto num : nums) unique.insert(num);
-        for(auto num : nums) unique.insert(intRev(num));
+        for(auto num : nums) {
+            unique.insert(num);
+            unique.insert(intRev(num));
+        }
         return unique.size();
     }
 };
