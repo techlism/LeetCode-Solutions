@@ -8,6 +8,6 @@ impl Solution {
         for i in t.chars() {
             sum2+= i as u8;
         }
-        return (sum2 - sum1) as char ;
+        return (sum2 - sum1) as char;
     }
 }
