@@ -7,10 +7,10 @@ private:
 public:
     string sortVowels(string s) {
         string vowels;
-        for(int i = 0;i<s.length();i++){
-            if(isVowel(s[i])){
-                vowels.push_back(s[i]);
-                s[i]='0';
+        for(auto &  ch : s){
+            if(isVowel(ch)){
+                vowels.push_back(ch);
+                ch='0';                
             }
         }
         sort(vowels.begin(),vowels.end());
