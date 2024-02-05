@@ -15,6 +15,6 @@ public:
             if(itr.second.first==1) 
                 ans = min(ans, itr.second.second);
         
-        return ans == INT_MAX ? -1 : ans ;
+        return ans == INT_MAX ? -1 : ans ;        
     }
 };
