@@ -10,6 +10,7 @@
  * };
  */
 class Solution {
+    // Its a pretty bad solution in terms of understandability but have to work on it
 private:
     int rec(TreeNode* root, int &d) {
         if(root == NULL) return 0;
