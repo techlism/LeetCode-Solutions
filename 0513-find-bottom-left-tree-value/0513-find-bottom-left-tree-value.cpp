@@ -9,6 +9,7 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+/*
 class Solution {
 public:
     int findBottomLeftValue(TreeNode* root) {
@@ -31,3 +32,27 @@ public:
         return levels[levels.size() -1][0];
     }
 };
+ // Working solution but the not the most optimized from storage pov
+*/
+class Solution {
+public:
+    int findBottomLeftValue(TreeNode* root) {
+        queue<TreeNode*> queue;
+        TreeNode* current = root;
+        queue.push(current);
+
+        while (!queue.empty()) {
+            current = queue.front();
+            queue.pop();
+            if (current->right != nullptr) {
+                queue.push(current->right);
+            }
+            if (current->left != nullptr) {
+                queue.push(current->left);
+            }
+        }
+        return current->val;
+    }
+};
+
+
